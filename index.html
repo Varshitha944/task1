@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Stopwatch</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Interactive Navigation Menu</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <h1>Stopwatch</h1>
-    <div id="display">00:00:00</div>
-    <div class="buttons">
-      <button onclick="startStop()">Start/stop</button>
-      <button onclick="reset()">Reset</button>
-      <button onclick="lap()">Lap</button>
-    </div>
-    <ul id="laps"></ul>
+
+  <nav id="navbar">
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Services</a></li>
+      <li><a href="#">Portfolio</a></li>
+      <li><a href="#">Contact</a></li>
+    </ul>
+  </nav>
+
+  <div class="content">
+
+    <h1>Welcome!</h1>
+    <p>Scroll down to see the menu style change...</p>
+    <div style="height: 1500px;"></div> <!-- Just to enable scrolling -->
   </div>
 
   <script src="script.js"></script>
