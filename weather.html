@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hyderabad Weather</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e0f7fa;
+      text-align: center;
+      padding: 50px;
+    }
+    .weather {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 10px;
+      display: inline-block;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body>
+  <h1>Weather Report - Hyderabad</h1>
+  <div class="weather" id="weather"></div>
+
+  <script>
+    const apiKey = 'abc123def456...'; // Replace with your OpenWeatherMap API key
+    const city = 'Hyderabad';
+    const url = https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric;
+
+    fetch(url)
+      .then(response => response.json())
+      .then(data => {
+       console.log(data);
+        const weatherBox = document.getElementById('weather');
+        const { main, weather, wind } = data;
+        weatherBox.innerHTML = `
+          <h2>${data.name}, ${data.sys.country}</h2>
+          <p><strong>${weather[0].main}</strong> - ${weather[0].description}</p>
+          <p>🌡 Temperature: ${main.temp} °C</p>
+          <p>💧 Humidity: ${main.humidity}%</p>
+          <p>🌬 Wind Speed: ${wind.speed} m/s</p>
+        `;
+      })
+      .catch(error => {
+        document.getElementById('weather').innerHTML = 'Failed to load weather data.';
+        console.error(error);
+      });
+  </script>
+</body>
+</html>
